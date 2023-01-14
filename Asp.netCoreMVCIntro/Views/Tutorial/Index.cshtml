@@ -1,6 +1,10 @@
 @{
-    var tutorials = ViewData["tutorials"] as List<Asp.netCoreMVCIntro.Models.Tutorial>;
+    // var tutorials = ViewData["tutorials"] as List<Asp.netCoreMVCIntro.Models.Tutorial>;
+    var tutorials = ViewBag.Tutorials;
 }
+
+<h1>@ViewData["title"]</h1>
+<h2>@ViewBag.name</h2>
 
 <table class="table">
     <tr>

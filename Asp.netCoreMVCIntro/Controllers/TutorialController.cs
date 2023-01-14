@@ -5,6 +5,8 @@ namespace Asp.netCoreMVCIntro.Controllers;
 
 public class TutorialController : Controller
 {
+    [ViewData] public string title { get; set; }
+
     // GET
     public IActionResult Index()
     {
@@ -14,7 +16,13 @@ public class TutorialController : Controller
             new Tutorial { Id = 2, Name = "Asp.net core", Description = "Asp.net core tutorial" }
         };
 
-        ViewData["tutorials"] = tutorials;
+        // ViewData["title"] = "Tutorial Details";
+        title = "Tutorial Details";
+
+        // ViewData["tutorials"] = tutorials;
+        ViewBag.Tutorials = tutorials;
+        ViewData["name"] = "All about .net...";
+
         return View();
     }
 }
