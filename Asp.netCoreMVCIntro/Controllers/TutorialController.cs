@@ -1,4 +1,5 @@
 using Asp.netCoreMVCIntro.Models;
+using Asp.netCoreMVCIntro.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Asp.netCoreMVCIntro.Controllers;
@@ -24,7 +25,14 @@ public class TutorialController : Controller
         // ViewData["name"] = "All about .net...";
         // return View();
 
-        var newModel = new Tutorial { Id = 1, Name = ".net", Description = ".net tutorial" };
+        // var newModel = new Tutorial { Id = 1, Name = ".net", Description = ".net tutorial" };
+        // return View(newModel);
+
+        var newModel = new TutorialViewModel()
+        {
+            tutorial = new Tutorial { Id = 1, Name = ".net", Description = ".net tutorial" },
+            title = "New Title"
+        };
         return View(newModel);
     }
 }
