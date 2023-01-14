@@ -1,10 +1,4 @@
-@{
-    // var tutorials = ViewData["tutorials"] as List<Asp.netCoreMVCIntro.Models.Tutorial>;
-    var tutorials = ViewBag.Tutorials;
-}
-
-<h1>@ViewData["title"]</h1>
-<h2>@ViewBag.name</h2>
+@model Asp.netCoreMVCIntro.Models.Tutorial
 
 <table class="table">
     <tr>
@@ -12,12 +6,17 @@
         <th>Name</th>
         <th>Description</th>
     </tr>
-    @foreach (var tutorial in tutorials)
-    {
-        <tr>
-            <td>@tutorial.Id</td>
-            <td>@tutorial.Name</td>
-            <td>@tutorial.Description</td>
-        </tr>
-    }
+    @* @foreach (var tutorial in tutorials) *@
+    @* { *@
+    @*     <tr> *@
+    @*         <td>@tutorial.Id</td> *@
+    @*         <td>@tutorial.Name</td> *@
+    @*         <td>@tutorial.Description</td> *@
+    @*     </tr> *@
+    @* } *@
+    <tr>
+        <td>@Model.Id</td>
+        <td>@Model.Name</td>
+        <td>@Model.Description</td>
+    </tr>
 </table>
