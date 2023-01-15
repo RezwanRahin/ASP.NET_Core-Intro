@@ -6,10 +6,17 @@ namespace Asp.netCoreMVCIntro.Controllers;
 
 public class TutorialController : Controller
 {
+    private readonly ITutorialRepository _tourRepository;
+    
+    public TutorialController(ITutorialRepository tutorialRepository)
+    {
+        _tourRepository = tutorialRepository;
+    }    
+
     // GET
     public IActionResult Index()
     {
-        var tutorials = new TutorialRepository().GetAllTutorial();
+        var tutorials = _tourRepository.GetAllTutorial();
         return View(tutorials);
     }
 }
