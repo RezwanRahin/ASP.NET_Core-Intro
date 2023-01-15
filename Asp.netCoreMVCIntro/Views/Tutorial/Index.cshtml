@@ -1,6 +1,9 @@
-@model Asp.netCoreMVCIntro.Models.ViewModels.TutorialViewModel
+@model IEnumerable<Tutorial>
 
-<h1>@Model.title</h1>
+@{
+    ViewData["Title"] = "Title - Tutorial";
+}
+
 
 <table class="table">
     <tr>
@@ -8,9 +11,12 @@
         <th>Name</th>
         <th>Description</th>
     </tr>
+    @foreach (var tutorial in Model)
+    {
     <tr>
-        <td>@Model.tutorial.Id</td>
-        <td>@Model.tutorial.Name</td>
-        <td>@Model.tutorial.Description</td>
+        <td>@tutorial.Id</td>
+        <td>@tutorial.Name</td>
+        <td>@tutorial.Description</td>
     </tr>
+    }
 </table>
