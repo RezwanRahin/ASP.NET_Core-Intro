@@ -1,14 +1,15 @@
+using Asp.netCoreMVCIntro.Context;
 using Asp.netCoreMVCIntro.Models;
 
 namespace Asp.netCoreMVCIntro.Repository;
 
 public class TutorialRepository : ITutorialRepository
 {
-    private List<Tutorial> _tutorials;
+    private readonly TutorialDbContext _context;
 
-    public TutorialRepository()
+    public TutorialRepository(TutorialDbContext context)
     {
-        
+        _context = context;
     }
 
     public void Add(Tutorial tutorial)
