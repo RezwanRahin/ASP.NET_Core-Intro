@@ -34,6 +34,6 @@ public class TutorialRepository : ITutorialRepository
 
     public IEnumerable<Tutorial> GetAllTutorial()
     {
-        return _tutorials;
+        return _context.Tutorials;
     }
 }
