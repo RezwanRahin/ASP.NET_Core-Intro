@@ -8,12 +8,7 @@ public class TutorialRepository : ITutorialRepository
 
     public TutorialRepository()
     {
-        // Temporaryily we are going to create mock data
-        _tutorials = new List<Tutorial>()
-        {
-            new Tutorial { Id = 1, Name = "C#", Description = "C# tutorial" },
-            new Tutorial { Id = 2, Name = "Asp.net core", Description = "Asp.net core tutorial" }
-        };
+        
     }
 
     public void Add(Tutorial tutorial)
