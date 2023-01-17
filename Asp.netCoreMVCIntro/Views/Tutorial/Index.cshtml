@@ -20,7 +20,7 @@
         <td>@tutorial.Id</td>
         <td>@tutorial.Name</td>
         <td>@tutorial.Description</td>
-        <td><a class="text-dark btn btn-primary">Edit</a></td>
+        <td><a class="text-dark btn btn-primary" asp-controller="Tutorial" asp-action="EditTutorial" asp-route-id="@tutorial.Id">Edit</a></td>
         <td><a class="text-dark btn btn-danger">Delete</a></td>
     </tr>
     }
