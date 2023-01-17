@@ -49,4 +49,10 @@ public class TutorialController : Controller
         Tutorial updatedTutorial = _tourRepository.Update(tutorial);
         return RedirectToAction("Index");
     }
+
+    public IActionResult DeleteTutorial(int id)
+    {
+        _tourRepository.Delete(id);
+        return RedirectToAction("Index");
+    }
 }
