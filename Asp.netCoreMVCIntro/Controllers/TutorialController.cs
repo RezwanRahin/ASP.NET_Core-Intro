@@ -32,4 +32,21 @@ public class TutorialController : Controller
         Tutorial newTutorial = _tourRepository.Add(tutorial);
         return RedirectToAction("Index");
     }
+
+    [HttpGet]
+    public IActionResult EditTutorial(int id)
+    {
+        Tutorial tutorial = _tourRepository.GetTutorial(id);
+        return View(tutorial);
+    }
+
+    [HttpPost]
+    public IActionResult EditTutorial(Tutorial modifiedData)
+    {
+        Tutorial tutorial = _tourRepository.GetTutorial(modifiedData.Id);
+        tutorial.Name = modifiedData.Name;
+        tutorial.Description = modifiedData.Description;
+        Tutorial updatedTutorial = _tourRepository.Update(tutorial);
+        return RedirectToAction("Index");
+    }
 }
