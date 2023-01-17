@@ -25,7 +25,13 @@ public class TutorialRepository : ITutorialRepository
 
     public void Delete(int Id)
     {
-        throw new NotImplementedException();
+        Tutorial tutorial = _context.Tutorials.Find(Id);
+
+        if (tutorial != null)
+        {
+            _context.Tutorials.Remove(tutorial);
+            _context.SaveChanges();
+        }
     }
 
     public Tutorial GetTutorial(int Id)
