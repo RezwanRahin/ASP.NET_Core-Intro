@@ -14,7 +14,8 @@ public class TutorialRepository : ITutorialRepository
 
     public void Add(Tutorial tutorial)
     {
-        throw new NotImplementedException();
+        _context.Tutorials.Add(tutorial);
+        _context.SaveChanges();
     }
 
     public Tutorial Update(Tutorial tutorial)
