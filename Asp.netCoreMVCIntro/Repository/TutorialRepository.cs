@@ -20,7 +20,9 @@ public class TutorialRepository : ITutorialRepository
 
     public Tutorial Update(Tutorial tutorial)
     {
-        throw new NotImplementedException();
+        _context.Tutorials.Update(tutorial);
+        _context.SaveChanges();
+        return tutorial;
     }
 
     public void Delete(int Id)
