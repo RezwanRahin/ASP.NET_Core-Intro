@@ -29,6 +29,11 @@ public class TutorialController : Controller
     [HttpPost]
     public IActionResult CreateTutorial(Tutorial tutorial)
     {
+        if (!ModelState.IsValid)
+        {
+            return View(tutorial);
+        }
+
         Tutorial newTutorial = _tourRepository.Add(tutorial);
         return RedirectToAction("Index");
     }
