@@ -38,7 +38,7 @@ public class TutorialRepository : ITutorialRepository
 
     public Tutorial GetTutorial(int Id)
     {
-        throw new NotImplementedException();
+        return _context.Tutorials.Find(Id);
     }
 
     public IEnumerable<Tutorial> GetAllTutorial()
