@@ -34,7 +34,7 @@ public class TutorialController : Controller
     }
 
     [HttpGet]
-    public IActionResult EditTutorial(int id)
+    public IActionResult EditTutorial(int id, string querystringData)
     {
         Tutorial tutorial = _tourRepository.GetTutorial(id);
         return View(tutorial);
