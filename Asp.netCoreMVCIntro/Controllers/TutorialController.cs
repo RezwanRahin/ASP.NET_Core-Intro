@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Asp.netCoreMVCIntro.Controllers;
 
-[Route("Tutorial")]
+// [Route("Tutorial")]
 public class TutorialController : Controller
 {
     private readonly ITutorialRepository _tourRepository;
@@ -21,7 +21,7 @@ public class TutorialController : Controller
         return View(tutorials);
     }
 
-    [Route("AddTutorial")]
+    // [Route("AddTutorial")]
     // [Route("Tutorial/AddTutorial")]
     [HttpGet]
     public IActionResult CreateTutorial()
