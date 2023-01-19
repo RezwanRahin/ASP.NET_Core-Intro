@@ -20,6 +20,7 @@ public class TutorialController : Controller
         return View(tutorials);
     }
 
+    [Route("AddTutorial")]
     [HttpGet]
     public IActionResult CreateTutorial()
     {
