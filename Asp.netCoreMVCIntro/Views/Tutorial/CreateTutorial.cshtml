@@ -6,7 +6,10 @@
 
 <form method="post" asp-controller="Tutorial" asp-action="CreateTutorial">
     @* Partial tag helper *@
-    <partial name="_TutorialFormFields" model="Model"/>
+    @* <partial name="_TutorialFormFields" model="Model"/> *@
+    
+    @* Asynchronous Html helper *@
+    @await Html.PartialAsync("_TutorialFormFields", Model)
 </form>
 
 @* @section Scripts *@
