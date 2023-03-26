@@ -10,5 +10,11 @@ public class TutorialMenuViewComponent : ViewComponent
     public TutorialMenuViewComponent(ITutorialRepository tutorialRepository)
     {
         _tutorialRepository = tutorialRepository;
-    }   
+    }
+
+    // Asynchronous method
+    public async Task<IViewComponentResult> InvokeAsync()
+    {
+        return View();
+    }
 }
