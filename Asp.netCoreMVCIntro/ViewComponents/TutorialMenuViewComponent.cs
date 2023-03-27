@@ -13,8 +13,8 @@ public class TutorialMenuViewComponent : ViewComponent
     }
 
     // Asynchronous method
-    public async Task<IViewComponentResult> InvokeAsync()
-    {
-        return View();
-    }
+    // public async Task<IViewComponentResult> InvokeAsync()
+    // {
+    //     return View();
+    // }
 }
