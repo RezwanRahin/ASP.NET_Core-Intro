@@ -12,6 +12,13 @@ public class TutorialMenuViewComponent : ViewComponent
         _tutorialRepository = tutorialRepository;
     }
 
+    // Synchronous method
+    public IViewComponentResult Invoke()
+    {
+        var tutorials = _tutorialRepository.GetAllTutorial().OrderBy(p => p.Name);
+        return View(tutorials);
+    }
+
     // Asynchronous method
     // public async Task<IViewComponentResult> InvokeAsync()
     // {
