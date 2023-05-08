@@ -14,4 +14,7 @@ public class Tutorial
     [Required]
     [Display(Name = "Tutorial Description")]
     public string Description { get; set; }
+
+    // Relationship
+    public List<Article> Articles { get; set; }
 }
