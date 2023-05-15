@@ -25,7 +25,7 @@ namespace Asp.netCoreMVCIntro.Repository
 
         public IEnumerable<Article> GetAllArticle()
         {
-            throw new NotImplementedException();
+            return _context.Articles.ToList();
         }
 
         public IEnumerable<Article> GetAllArticlesByTutorialId(int tutorialId)
