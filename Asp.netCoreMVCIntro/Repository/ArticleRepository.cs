@@ -30,7 +30,7 @@ namespace Asp.netCoreMVCIntro.Repository
 
         public IEnumerable<Article> GetAllArticlesByTutorialId(int tutorialId)
         {
-            throw new NotImplementedException();
+            return _context.Articles.Where(a => a.TutorialId == tutorialId).ToList();
         }
 
         public IEnumerable<Tutorial> GetAllTutorials()
