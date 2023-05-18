@@ -1,3 +1,4 @@
+using Asp.netCoreMVCIntro.Models;
 using Asp.netCoreMVCIntro.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,5 +11,11 @@ public class ArticleController : Controller
     public ArticleController(IArticleRepository articleRepository)
     {
         _articleRepository = articleRepository;
+    }
+
+    public IActionResult DisplayArticles(int id)
+    {
+        IEnumerable<Article> articles = _articleRepository.GetAllArticlesByTutorialId(id);
+        return View(articles);
     }
 }
