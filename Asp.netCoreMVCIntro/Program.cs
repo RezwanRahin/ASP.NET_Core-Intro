@@ -13,6 +13,7 @@ var connectionString = builder.Configuration.GetConnectionString("TutorialDbConn
 builder.Services.AddDbContext<TutorialDbContext>(options => options.UseSqlServer((connectionString)));
 
 builder.Services.AddScoped<ITutorialRepository, TutorialRepository>();
+builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
 
 var app = builder.Build();
 
