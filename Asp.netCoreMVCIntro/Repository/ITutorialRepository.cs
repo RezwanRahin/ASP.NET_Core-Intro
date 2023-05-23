@@ -8,5 +8,5 @@ public interface ITutorialRepository
     Tutorial Update(Tutorial tutorial);
     void Delete(int Id);
     Tutorial GetTutorial(int Id);
-    IEnumerable<Tutorial> GetAllTutorial();
+    Task<IEnumerable<Tutorial>> GetAllTutorial();
 }
