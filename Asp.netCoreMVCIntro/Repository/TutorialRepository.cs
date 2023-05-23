@@ -1,5 +1,6 @@
 using Asp.netCoreMVCIntro.Context;
 using Asp.netCoreMVCIntro.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Asp.netCoreMVCIntro.Repository;
 
@@ -41,8 +42,8 @@ public class TutorialRepository : ITutorialRepository
         return _context.Tutorials.Find(Id);
     }
 
-    public IEnumerable<Tutorial> GetAllTutorial()
+    public async Task<IEnumerable<Tutorial>> GetAllTutorial()
     {
-        return _context.Tutorials;
+        return await _context.Tutorials.ToListAsync();
     }
 }
