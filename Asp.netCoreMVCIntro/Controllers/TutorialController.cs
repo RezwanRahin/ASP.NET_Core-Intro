@@ -15,9 +15,9 @@ public class TutorialController : Controller
     }    
 
     // GET
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        var tutorials = _tourRepository.GetAllTutorial();
+        var tutorials = await _tourRepository.GetAllTutorial();
         return View(tutorials);
     }
 
