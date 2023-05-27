@@ -37,9 +37,9 @@ public class TutorialRepository : ITutorialRepository
         }
     }
 
-    public Tutorial GetTutorial(int Id)
+    public async Task<Tutorial> GetTutorial(int Id)
     {
-        return _context.Tutorials.Find(Id);
+        return await _context.Tutorials.FindAsync(Id);
     }
 
     public async Task<IEnumerable<Tutorial>> GetAllTutorial()
