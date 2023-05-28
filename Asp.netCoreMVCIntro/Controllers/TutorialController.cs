@@ -42,16 +42,16 @@ public class TutorialController : Controller
     }
 
     [HttpGet]
-    public IActionResult EditTutorial(int id, string querystringData)
+    public async Task<IActionResult> EditTutorial(int id, string querystringData)
     {
-        Tutorial tutorial = _tourRepository.GetTutorial(id);
+        Tutorial tutorial = await _tourRepository.GetTutorial(id);
         return View(tutorial);
     }
 
     [HttpPost]
-    public IActionResult EditTutorial(Tutorial modifiedData)
+    public async Task<IActionResult> EditTutorial(Tutorial modifiedData)
     {
-        Tutorial tutorial = _tourRepository.GetTutorial(modifiedData.Id);
+        Tutorial tutorial = await _tourRepository.GetTutorial(modifiedData.Id);
         tutorial.Name = modifiedData.Name;
         tutorial.Description = modifiedData.Description;
         Tutorial updatedTutorial = _tourRepository.Update(tutorial);
