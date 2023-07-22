@@ -28,7 +28,12 @@ namespace Asp.netCoreMVCIntro.Repository
 
         public void DeleteArticle(int Id)
         {
-            throw new NotImplementedException();
+            Article article = _context.Articles.Find(Id);
+            if (article != null)
+            {
+                _context.Articles.Remove(article);
+                _context.SaveChanges();
+            }
         }
 
         public IEnumerable<Article> GetAllArticle()
