@@ -15,7 +15,15 @@ namespace Asp.netCoreMVCIntro.Repository
 
         public void AddArticle(ArticleViewModel article)
         {
-            throw new NotImplementedException();
+            var newArticle = new Article()
+            {
+                ArticleTitle = article.ArticleTitle,
+                ArticleContent = article.ArticleContent,
+                TutorialId = article.TutorialId
+            };
+
+            _context.Articles.AddAsync(newArticle);
+            _context.SaveChangesAsync();
         }
 
         public void DeleteArticle(int Id)
