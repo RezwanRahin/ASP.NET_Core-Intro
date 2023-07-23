@@ -13,9 +13,9 @@ public class ArticleController : Controller
         _articleRepository = articleRepository;
     }
 
-    public IActionResult DisplayArticles(int id)
+    public async Task<IActionResult> DisplayArticles(int id)
     {
-        IEnumerable<Article> articles = _articleRepository.GetAllArticlesByTutorialId(id);
+        IEnumerable<Article> articles = await _articleRepository.GetAllArticlesByTutorialId(id);
         return View(articles);
     }
 }
