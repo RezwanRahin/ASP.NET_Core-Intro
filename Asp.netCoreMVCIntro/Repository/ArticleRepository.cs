@@ -52,9 +52,9 @@ namespace Asp.netCoreMVCIntro.Repository
             return await _context.Tutorials.ToListAsync();
         }
 
-        public Article GetArticleById(int Id)
+        public async Task<Article> GetArticleById(int Id)
         {
-            throw new NotImplementedException();
+            return await _context.Articles.FindAsync(Id);
         }
 
         public Article UpdateArticle(Article updatedArticle)
