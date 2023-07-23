@@ -1,4 +1,5 @@
 using Asp.netCoreMVCIntro.Models;
+using Asp.netCoreMVCIntro.Models.ViewModels;
 using Asp.netCoreMVCIntro.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -26,6 +27,20 @@ public class ArticleController : Controller
         var tutorials = await _articleRepository.GetAllTutorials();
         ViewBag.Tutorials = new SelectList(tutorials, "Id", "Name");
         return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddNewArticle(ArticleViewModel article)
+    {
+        if (!ModelState.IsValid)
+        {
+            var tutorials = await _articleRepository.GetAllTutorials();
+            ViewBag.Tutorials = new SelectList(tutorials, "Id", "Name");
+            return View(article);
+        }
+
+        _articleRepository.AddArticle(article);
+        return RedirectToAction("Index");
     }
 
     public async Task<IActionResult> DisplayArticles(int id)
