@@ -1,6 +1,7 @@
 using Asp.netCoreMVCIntro.Context;
 using Asp.netCoreMVCIntro.Models;
 using Asp.netCoreMVCIntro.Models.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace Asp.netCoreMVCIntro.Repository
 {
@@ -36,9 +37,9 @@ namespace Asp.netCoreMVCIntro.Repository
             }
         }
 
-        public IEnumerable<Article> GetAllArticle()
+        public async Task<IEnumerable<Article>> GetAllArticle()
         {
-            return _context.Articles.ToList();
+            return await _context.Articles.ToListAsync();
         }
 
         public IEnumerable<Article> GetAllArticlesByTutorialId(int tutorialId)
