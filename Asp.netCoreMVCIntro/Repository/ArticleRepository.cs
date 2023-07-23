@@ -59,7 +59,9 @@ namespace Asp.netCoreMVCIntro.Repository
 
         public Article UpdateArticle(Article updatedArticle)
         {
-            throw new NotImplementedException();
+            _context.Update(updatedArticle);
+            _context.SaveChanges();
+            return updatedArticle;
         }
     }
 }
