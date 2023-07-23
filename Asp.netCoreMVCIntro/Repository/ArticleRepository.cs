@@ -47,9 +47,9 @@ namespace Asp.netCoreMVCIntro.Repository
             return await _context.Articles.Where(a => a.TutorialId == tutorialId).ToListAsync();
         }
 
-        public IEnumerable<Tutorial> GetAllTutorials()
+        public async Task<IEnumerable<Tutorial>> GetAllTutorials()
         {
-            throw new NotImplementedException();
+            return await _context.Tutorials.ToListAsync();
         }
 
         public Article GetArticleById(int Id)
