@@ -42,9 +42,9 @@ namespace Asp.netCoreMVCIntro.Repository
             return await _context.Articles.ToListAsync();
         }
 
-        public IEnumerable<Article> GetAllArticlesByTutorialId(int tutorialId)
+        public async Task<IEnumerable<Article>> GetAllArticlesByTutorialId(int tutorialId)
         {
-            return _context.Articles.Where(a => a.TutorialId == tutorialId).ToList();
+            return await _context.Articles.Where(a => a.TutorialId == tutorialId).ToListAsync();
         }
 
         public IEnumerable<Tutorial> GetAllTutorials()
