@@ -13,6 +13,12 @@ public class ArticleController : Controller
         _articleRepository = articleRepository;
     }
 
+    public async Task<IActionResult> Index()
+    {
+        IEnumerable<Article> articles = await _articleRepository.GetAllArticle();
+        return View(articles);
+    }
+
     public async Task<IActionResult> DisplayArticles(int id)
     {
         IEnumerable<Article> articles = await _articleRepository.GetAllArticlesByTutorialId(id);
