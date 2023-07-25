@@ -54,4 +54,19 @@ public class ArticleController : Controller
         _articleRepository.AddArticle(article);
         return RedirectToAction("Index");
     }
+
+    [HttpGet]
+    public async Task<IActionResult> EditArticle(int id)
+    {
+        Article article = await _articleRepository.GetArticleById(id);
+        var data = new ArticleViewModel()
+        {
+            ArticleTitle = article.ArticleTitle,
+            ArticleContent = article.ArticleContent
+        };
+        
+        var tutorials = await _articleRepository.GetAllTutorials();
+        ViewBag.Tutorials = new SelectList(tutorials, "Id", "Name");
+        return View(data);
+    }
 }
