@@ -21,6 +21,12 @@ public class ArticleController : Controller
         return View(articles);
     }
 
+    public async Task<IActionResult> GetArticleByArticleId(int id)
+    {
+        Article article = await _articleRepository.GetArticleById(id);
+        return View(article);
+    }
+
     [HttpGet]
     public async Task<IActionResult> AddNewArticle()
     {
