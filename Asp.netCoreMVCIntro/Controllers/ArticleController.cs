@@ -27,6 +27,12 @@ public class ArticleController : Controller
         return View(article);
     }
 
+    public async Task<IActionResult> DisplayArticlesByTutorialId(int id)
+    {
+        IEnumerable<Article> articles = await _articleRepository.GetAllArticlesByTutorialId(id);
+        return View(articles);
+    }
+
     [HttpGet]
     public async Task<IActionResult> AddNewArticle()
     {
