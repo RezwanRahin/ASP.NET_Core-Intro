@@ -48,10 +48,4 @@ public class ArticleController : Controller
         _articleRepository.AddArticle(article);
         return RedirectToAction("Index");
     }
-
-    public async Task<IActionResult> DisplayArticles(int id)
-    {
-        IEnumerable<Article> articles = await _articleRepository.GetAllArticlesByTutorialId(id);
-        return View(articles);
-    }
 }
