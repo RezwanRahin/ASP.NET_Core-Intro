@@ -69,4 +69,20 @@ public class ArticleController : Controller
         ViewBag.Tutorials = new SelectList(tutorials, "Id", "Name");
         return View(data);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> EditArticle(ArticleViewModel modifiedData)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(modifiedData);
+        }
+
+        Article article = await _articleRepository.GetArticleById(modifiedData.Id);
+        article.ArticleTitle = modifiedData.ArticleTitle;
+        article.ArticleContent = modifiedData.ArticleContent;
+        _articleRepository.UpdateArticle(article);
+        
+        return RedirectToAction("Index");
+    }
 }
