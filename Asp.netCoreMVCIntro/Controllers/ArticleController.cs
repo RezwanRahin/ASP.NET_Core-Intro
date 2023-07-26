@@ -85,4 +85,10 @@ public class ArticleController : Controller
         
         return RedirectToAction("Index");
     }
+
+    public IActionResult DeleteArticle(int id)
+    {
+        _articleRepository.DeleteArticle(id);
+        return RedirectToAction("Index");
+    }
 }
